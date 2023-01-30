@@ -1,17 +1,29 @@
-function fnc(){
-    console.log('hello world');
+function add(a,b){
+    let x=a+b;
+    function sum() {
+        console.log(x);
+    }
+    sum();
+    return x;
+}
+console.log(add(5,2));
+
+//
+function outer(){
+    function inner(a,b){
+        return (a+b);
+    };
+    return inner;
 }
 
-function add( x, y){
-    let s=x+y;
-    console.log(s);
+let fnc=outer();
+console.log(fnc(10, 20));
+
+let map={
+    'name' : 'Mahadi',
+    'fnc' : function callMyName(n){
+        return n;
+    }
 }
 
-function sum( x, y){
-    let s=x+y;
-    return s;
-}
-
-fnc();
-add(5,2);
-console.log(sum(6,4));
+console.log(map.fnc(map.name));
